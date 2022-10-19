@@ -8,6 +8,9 @@ Cambios con respecto a la primer entrega: -El mayor cambio son los ultimos temas
 
 Cosas a mejorar/añadir mas adelante: -Como seguramente detalle en el video, aun no hay un sistema el cual interactue con el stock para hacer activo al sistema de compra. Ahora solo es visual, pero me gustaria implementar un sistema de carrito y de ver las compras realizadas. Tambien agregar un sistema para vender y publicar las cartas segun los permisos que tenga el usuario.
 
+LINK AL VIDEO DE MUESTRA: https://www.youtube.com/watch?v=-p_Pe1n7_2w
+
+
 Entrega1
 
 -Las 3 clases pedidas en la entrega se encuentran en models, es un prototipo por ahora hay 2 clases que no tienen mayor uso. La clase mas importante es la de las "cartas" de lo cual se va a basar la web
