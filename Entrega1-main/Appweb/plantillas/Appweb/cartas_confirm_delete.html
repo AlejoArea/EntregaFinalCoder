@@ -1,0 +1,40 @@
+
+{% extends "Appweb/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo %}
+
+ <h1> Cuidado! No hay vuelta atras luego de aceptar! </h1> 
+    <body>
+        <h2>
+            <body>
+                <form action="" method="POST"> {% csrf_token %}
+                    <table>
+            
+                        <p> Estas seguro que quieres eliminar esta carta?</p>
+
+            
+                    <table>
+                    
+                    <input type="submit" value="Aceptar">
+                    <button>
+                        <a href="{% url 'CartasLeer' %}"> Regresar</a>
+                    </button>
+                </form>
+            </body>
+        </h2>
+    </body>
+
+{% endblock %}
+
+{% block image %}
+
+{% endblock %}
+
+{% block footer %}
+
+
+
+{% endblock %}

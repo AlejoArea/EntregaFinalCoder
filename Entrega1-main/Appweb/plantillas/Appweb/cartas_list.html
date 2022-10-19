@@ -1,0 +1,71 @@
+{% extends "Appweb/padre.html" %}
+
+{% load static %}
+
+{% block navbar %}
+<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+        <a class="navbar-brand" href="{% url 'BuscarCarta' %}">Comprar</a>
+        <a class="navbar-brand" href="{% url 'CartaCrear' %}">IngresarCarta</a>
+        <a class="navbar-brand" href="{% url 'CartasLeer' %}">Coleccion</a>
+        
+        
+        {% if request.user.is_authenticated %}
+            <a class="btn btn-primary" href="{% url 'Perfil' %}">Perfil</a>
+            <a class="btn btn-primary" href="{% url 'Logout' %}">Log out</a>
+            <p>Hola! {{user.username}}</p>
+        {% with user.avatar_set.first as miAvatar %}
+
+            {% if miAvatar %}
+            <img src="{{miAvatar.imagen.url}}" alt="No encontro la imagen" width="80" 
+            height="auto" ;>
+            {% endif %}
+        {% endwith %}
+        
+        {% else %}
+            <a class="btn btn-primary" href="{% url 'Login' %}">Log In</a>
+            <a class="btn btn-primary" href="{% url 'Singup' %}">Registrarse</a>
+
+        {% endif %}
+
+    </div>
+</nav>
+{% endblock %}
+
+{% block titulo %}
+
+<h1> Bienvenido a la coleccion </h1> 
+
+
+<!-- <h2> Ingrese lo que desea buscar <h2> -->
+    <h2>  Coleccionde cartas:  <h2>
+    
+    {% for cartas in object_list %}
+    
+        <img src="{{cartas.imagen.url}}" alt="No hay imagen." width="160" 
+        height="230" ;>
+        <h3> Nombre: {{cartas.nombre}} </h3>
+        <h3> Precio: {{cartas.precio}} </h3>
+        <h3> Stock: {{cartas.stock}}   </h3>
+
+        <button>
+            <a href="{% url 'CartaEditar' cartas.id %}"> Editar carta  </a>
+        </button>
+        <button>
+            <a href="{% url 'CartaDetalle' cartas.id %}"> Ver detalles </a>
+        </button>
+        <button>
+            <a href="{% url 'CartaEliminar' cartas.id %}"> Eliminar carta </a>
+        </button>
+
+        
+
+        <h3>   </h3>
+    {% endfor %}
+
+    <h3> Desea agregar una nueva carta? </h3>
+    <button>
+        <a href="{% url 'CartaCrear' %}"> Ingresar nueva carta</a>
+    </button>
+{% endblock %}

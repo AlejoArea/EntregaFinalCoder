@@ -1,0 +1,29 @@
+{% extends "Appweb/padre.html" %}
+
+{% load static %}
+
+{% block navbar %}
+<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+        <a class="btn btn-primary" href="{% url 'Login' %}">Log In</a>
+        <a class="btn btn-primary" href="{% url 'Singup' %}">Registrarse</a>
+
+    </div>
+</nav>
+{% endblock %}
+
+{% block titulo %}
+
+ <h1> Creando una nueva cuenta! <h1> 
+    <h2>
+    <form action="" method="POST">{% csrf_token %}
+
+        {{formulario.as_p}}
+        
+        <button type= "submit"> Registrarse </button>
+    
+    </form>
+    </h2>
+{% endblock %}
+
