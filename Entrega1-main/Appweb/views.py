@@ -24,6 +24,7 @@ def aboutpage(request):
 
 
 #Es la view para el llamar el formulario de busqueda en BD de "cartas"
+@login_required
 def busquedaCarta(request):
 
     return render(request,"Appweb/busqueda.html")
